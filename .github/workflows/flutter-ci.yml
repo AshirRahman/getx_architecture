@@ -1,0 +1,81 @@
+name: Project Setup Flutter CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      # 1. Checkout source code
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # 2. Setup Flutter SDK
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4. Run tests
+      - name: Run Flutter tests
+        run: flutter test --coverage
+
+      # 5. Run code generation
+      - name: Run build_runner
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      # 6. Build Android APK
+      - name: Build APK
+        run: flutter build apk --release
+
+      # 7. Build iOS (unsigned, no codesign)
+      - name: Build iOS
+        run: flutter build ios --release --no-codesign
+
+      # 8. Package unsigned iOS IPA
+      - name: Package unsigned iOS IPA
+        run: |
+          cd build/ios/iphoneos
+          mkdir Payload
+          cp -r Runner.app Payload/
+          zip -r unsigned-app.ipa Payload
+
+      # 9. Upload Android APK as artifact
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: zarbazan1-app-release
+          path: build/app/outputs/flutter-apk/**/*.apk
+
+      # 10. Upload iOS IPA as artifact
+      - name: Upload iOS IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: zarbazan1-ios-ipa
+          path: build/ios/iphoneos/unsigned-app.ipa
+
+      # 11. Publish GitHub Release
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.${{ github.run_number }}
+          name: "Zarbazan1 Release v1.${{ github.run_number }}"
+          files: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/ios/iphoneos/unsigned-app.ipa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
