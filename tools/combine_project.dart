@@ -108,6 +108,8 @@ void main() {
     buffer.writeln('│ Lines: $lines');
     buffer.writeln('└${"─" * 68}┘');
     buffer.writeln('');
+    buffer.writeln('// path: $relativePath');
+    buffer.writeln('');
     buffer.writeln(content);
     buffer.writeln('');
     buffer.writeln('');

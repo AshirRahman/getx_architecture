@@ -1,6 +1,6 @@
 ======================================================================
   PROJECT: getx_architecture
-  Generated: 2026-04-28 16:18:26.761905
+  Generated: 2026-04-28 16:52:40.216442
 ======================================================================
 
 ──────────────────────────────────────────────────────────────────────
@@ -54,6 +54,8 @@
 │ Lines: 45
 └────────────────────────────────────────────────────────────────────┘
 
+// path: .gitignore
+
 # Miscellaneous
 *.class
 *.log
@@ -106,6 +108,8 @@ temp_interactive_push.bat
 │ Lines: 17
 └────────────────────────────────────────────────────────────────────┘
 
+// path: README.md
+
 # project
 
 A new Flutter project.
@@ -129,6 +133,8 @@ samples, guidance on mobile development, and a full API reference.
 │ 📄 FILE: analysis_options.yaml
 │ Lines: 29
 └────────────────────────────────────────────────────────────────────┘
+
+// path: analysis_options.yaml
 
 # This file configures the analyzer, which statically analyzes Dart code to
 # check for errors, warnings, and lints.
@@ -165,6 +171,8 @@ linter:
 │ 📄 FILE: lib\app.dart
 │ Lines: 33
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\app.dart
 
 import 'package:project/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -206,6 +214,8 @@ class Project extends StatelessWidget {
 │ Lines: 14
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\bindings\controller_binder.dart
+
 
 
 import 'package:get/get.dart';
@@ -226,6 +236,8 @@ class ControllerBinder extends Bindings {
 │ 📄 FILE: lib\core\common\styles\global_text_style.dart
 │ Lines: 19
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\common\styles\global_text_style.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -253,6 +265,8 @@ TextStyle getTextStyle({
 │ Lines: 1
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\common\widgets\custom_card.dart
+
 
 
 
@@ -260,6 +274,8 @@ TextStyle getTextStyle({
 │ 📄 FILE: lib\core\localization\app_localizations.dart
 │ Lines: 2
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\localization\app_localizations.dart
 
 
 
@@ -269,6 +285,8 @@ TextStyle getTextStyle({
 │ 📄 FILE: lib\core\models\response_data.dart
 │ Lines: 12
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\models\response_data.dart
 
 class ResponseData {
   final bool isSuccess;
@@ -288,6 +306,8 @@ class ResponseData {
 │ 📄 FILE: lib\core\services\firebase\app_notification_initializer.dart
 │ Lines: 16
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\services\firebase\app_notification_initializer.dart
 
 // import 'package:flutter/cupertino.dart';
 
@@ -311,6 +331,8 @@ class ResponseData {
 │ 📄 FILE: lib\core\services\firebase\fcm_handler.dart
 │ Lines: 46
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\services\firebase\fcm_handler.dart
 
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
@@ -365,6 +387,8 @@ class ResponseData {
 │ Lines: 24
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\services\firebase\firebase_service.dart
+
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:notification_test/core/utils/logging/logger.dart';
@@ -395,6 +419,8 @@ class ResponseData {
 │ 📄 FILE: lib\core\services\firebase\notification_readME.txt
 │ Lines: 74
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\services\firebase\notification_readME.txt
 
 for using Firebase push notification you have to do......
 
@@ -476,6 +502,8 @@ for using Firebase push notification you have to do......
 │ 📄 FILE: lib\core\services\firebase\notification_service.dart
 │ Lines: 118
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\services\firebase\notification_service.dart
 
 // import 'dart:io';
 // import 'package:http/http.dart' as http;
@@ -601,6 +629,8 @@ for using Firebase push notification you have to do......
 │ 📄 FILE: lib\core\services\network_caller.dart
 │ Lines: 205
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\services\network_caller.dart
 
 import 'dart:async';
 import 'dart:convert';
@@ -814,6 +844,8 @@ class NetworkCaller {
 │ Lines: 44
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\services\storage_service.dart
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageService {
@@ -865,6 +897,8 @@ class StorageService {
 │ Lines: 1
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\constants\api_constants.dart
+
 
 
 
@@ -872,6 +906,8 @@ class StorageService {
 │ 📄 FILE: lib\core\utils\constants\app_texts.dart
 │ Lines: 6
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\constants\app_texts.dart
 
 
 class AppText{
@@ -885,6 +921,8 @@ class AppText{
 │ 📄 FILE: lib\core\utils\constants\colors.dart
 │ Lines: 43
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\constants\colors.dart
 
 import 'package:flutter/material.dart';
 
@@ -936,6 +974,8 @@ class AppColors {
 │ Lines: 17
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\constants\enums.dart
+
 
 enum TextSizes { small, medium, large }
 
@@ -960,6 +1000,8 @@ enum PaymentMethods {
 │ Lines: 5
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\constants\icon_path.dart
+
 
 class IconPath{
   IconPath._();
@@ -972,6 +1014,8 @@ class IconPath{
 │ Lines: 4
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\constants\image_path.dart
+
 
 class ImagePath{
   static const  String logo='';
@@ -983,6 +1027,8 @@ class ImagePath{
 │ Lines: 1
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\constants\sizer.dart
+
 
 
 
@@ -990,6 +1036,8 @@ class ImagePath{
 │ 📄 FILE: lib\core\utils\device\device_utility.dart
 │ Lines: 118
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\device\device_utility.dart
 
 import 'dart:io';
 
@@ -1116,6 +1164,8 @@ class AppDeviceUtility {
 │ Lines: 26
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\formatters\app_formatters.dart
+
 import 'package:intl/intl.dart';
 
 class AppForMatters {
@@ -1148,6 +1198,8 @@ class AppForMatters {
 │ 📄 FILE: lib\core\utils\helpers\app_helper.dart
 │ Lines: 80
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\helpers\app_helper.dart
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -1236,6 +1288,8 @@ class AppHelperFunctions{
 │ Lines: 25
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\logging\logger.dart
+
 import 'package:logger/logger.dart';
 
 class AppLoggerHelper{
@@ -1267,6 +1321,8 @@ class AppLoggerHelper{
 │ 📄 FILE: lib\core\utils\theme\custom_themes\app_bar_theme.dart
 │ Lines: 40
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\theme\custom_themes\app_bar_theme.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -1314,6 +1370,8 @@ class App_BarTheme {
 │ 📄 FILE: lib\core\utils\theme\custom_themes\elevated_button_theme.dart
 │ Lines: 87
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\theme\custom_themes\elevated_button_theme.dart
 
 import 'package:flutter/material.dart';
 
@@ -1408,6 +1466,8 @@ class AppElevatedButtonTheme {
 │ 📄 FILE: lib\core\utils\theme\custom_themes\text_field_theme.dart
 │ Lines: 92
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\theme\custom_themes\text_field_theme.dart
 
 import 'package:flutter/material.dart';
 
@@ -1507,6 +1567,8 @@ class AppTextFormFieldTheme {
 │ 📄 FILE: lib\core\utils\theme\custom_themes\text_theme.dart
 │ Lines: 162
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\theme\custom_themes\text_theme.dart
 
 import 'package:flutter/material.dart';
 
@@ -1677,6 +1739,8 @@ class AppTextTheme {
 │ Lines: 34
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\core\utils\theme\theme.dart
+
 import 'package:flutter/material.dart';
 
 import 'custom_themes/app_bar_theme.dart';
@@ -1717,6 +1781,8 @@ class AppTheme {
 │ 📄 FILE: lib\core\utils\validators\app_validator.dart
 │ Lines: 62
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\utils\validators\app_validator.dart
 
 class AppValidator {
   AppValidator._();
@@ -1786,6 +1852,8 @@ class AppValidator {
 │ 📄 FILE: lib\core\websoketMathod\websoket.dart
 │ Lines: 307
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\core\websoketMathod\websoket.dart
 
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
@@ -2101,6 +2169,8 @@ class GroupWebSocketService {
 │ Lines: 2
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\features\home\controller\home_controller.dart
+
 
 
 
@@ -2109,6 +2179,8 @@ class GroupWebSocketService {
 │ 📄 FILE: lib\features\home\screen\home_screen.dart
 │ Lines: 15
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\features\home\screen\home_screen.dart
 
 import 'package:flutter/material.dart';
 
@@ -2132,6 +2204,8 @@ class HomeScreen extends StatelessWidget {
 │ Lines: 7
 └────────────────────────────────────────────────────────────────────┘
 
+// path: lib\main.dart
+
 import 'package:project/app.dart';
 import 'package:flutter/material.dart';
 
@@ -2145,6 +2219,8 @@ void main() {
 │ 📄 FILE: lib\routes\app_routes.dart
 │ Lines: 13
 └────────────────────────────────────────────────────────────────────┘
+
+// path: lib\routes\app_routes.dart
 
 import 'package:get/get.dart';
 import '../features/home/screen/home_screen.dart';
@@ -2163,14 +2239,16 @@ class AppRoute {
 
 ┌────────────────────────────────────────────────────────────────────┐
 │ 📄 FILE: pubspec.yaml
-│ Lines: 109
+│ Lines: 107
 └────────────────────────────────────────────────────────────────────┘
+
+// path: pubspec.yaml
 
 name: project
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -2198,7 +2276,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -2238,7 +2315,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -2282,6 +2358,8 @@ flutter:
 │ Lines: 23
 └────────────────────────────────────────────────────────────────────┘
 
+// path: test\widget_test.dart
+
 import 'package:project/features/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -2310,5 +2388,5 @@ void main() {
 ======================================================================
   📊 SUMMARY
   Total Files : 40
-  Total Lines : 1978
+  Total Lines : 1976
 ======================================================================
