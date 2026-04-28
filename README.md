@@ -1,4 +1,4 @@
-# course_online
+# project
 
 A new Flutter project.
 

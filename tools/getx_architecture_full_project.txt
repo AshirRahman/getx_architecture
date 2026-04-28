@@ -106,7 +106,7 @@ temp_interactive_push.bat
 │ Lines: 17
 └────────────────────────────────────────────────────────────────────┘
 
-# course_online
+# project
 
 A new Flutter project.
 
@@ -166,7 +166,7 @@ linter:
 │ Lines: 33
 └────────────────────────────────────────────────────────────────────┘
 
-import 'package:course_online/routes/app_routes.dart';
+import 'package:project/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -2132,7 +2132,7 @@ class HomeScreen extends StatelessWidget {
 │ Lines: 7
 └────────────────────────────────────────────────────────────────────┘
 
-import 'package:course_online/app.dart';
+import 'package:project/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -2166,7 +2166,7 @@ class AppRoute {
 │ Lines: 109
 └────────────────────────────────────────────────────────────────────┘
 
-name: course_online
+name: project
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -2282,7 +2282,7 @@ flutter:
 │ Lines: 23
 └────────────────────────────────────────────────────────────────────┘
 
-import 'package:course_online/features/home/screen/home_screen.dart';
+import 'package:project/features/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
