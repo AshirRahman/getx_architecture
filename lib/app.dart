@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'core/bindings/controller_binder.dart';
 import 'core/utils/theme/theme.dart';
 
-class CourseOnline extends StatelessWidget {
-  const CourseOnline({super.key});
+class Project extends StatelessWidget {
+  const Project({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class CourseOnline extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-// Use builder only if you need to use library outside ScreenUtilInit context
+      // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,

@@ -1,27 +1,27 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
+
 import 'package:http/http.dart';
 
 import '../models/response_data.dart';
 
 class NetworkCaller {
-  final int timeoutDuration = 10;
+  final int timeoutDuration = 60;
 
-  // GET method
+  Map<String, String> _headers(String? token) => {
+        'Content-Type': 'application/json',
+        if (token != null) 'Authorization': token,
+      };
+
+  // ===================== GET =====================
   Future<ResponseData> getRequest(String url, {String? token}) async {
-    log('GET Request: $url');
-    log('GET Token: $token');
     try {
-      final Response response = await get(
+      final response = await get(
         Uri.parse(url),
-        headers: {
-          'Authorization': token.toString(),
-          'Content-type': 'application/json',
-        },
-      ).timeout(
-        Duration(seconds: timeoutDuration),
-      );
+        headers: _headers(token),
+      ).timeout(Duration(seconds: timeoutDuration));
 
       return _handleResponse(response);
     } catch (e) {
@@ -29,98 +29,161 @@ class NetworkCaller {
     }
   }
 
-  // POST method
+  // ===================== POST =====================
   Future<ResponseData> postRequest(String url,
-      {Map<String, String>? body, String? token}) async {
-    log('POST Request: $url');
-    log('Request Body: ${jsonEncode(body)}');
-
+      {Map<String, dynamic>? body, String? token}) async {
     try {
-      final Response response = await post(Uri.parse(url),
-          headers: {'Content-type': 'application/json'},
-          body: jsonEncode(body))
-          .timeout(Duration(seconds: timeoutDuration));
+      final response = await post(
+        Uri.parse(url),
+        headers: _headers(token),
+        body: jsonEncode(body),
+      ).timeout(Duration(seconds: timeoutDuration));
+
       return _handleResponse(response);
     } catch (e) {
       return _handleError(e);
     }
   }
 
-  // Handle response
-  ResponseData _handleResponse(Response response) {
-    log('Response Status: ${response.statusCode}');
-    log('Response Body: ${response.body}');
+  // ===================== PUT =====================
+  Future<ResponseData> putRequest(String url,
+      {Map<String, dynamic>? body, String? token}) async {
+    try {
+      final response = await put(
+        Uri.parse(url),
+        headers: _headers(token),
+        body: jsonEncode(body),
+      ).timeout(Duration(seconds: timeoutDuration));
 
-    final decodedResponse = jsonDecode(response.body);
+      return _handleResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
 
-    if (response.statusCode == 200) {
-      if (decodedResponse['success'] == true) {
-        return ResponseData(
-          isSuccess: true,
-          statusCode: response.statusCode,
-          responseData: decodedResponse,
-          errorMessage: '',
-        );
-      } else {
-        return ResponseData(
-          isSuccess: false,
-          statusCode: response.statusCode,
-          responseData: decodedResponse,
-          errorMessage: decodedResponse['message'] ?? 'Unknown error occurred',
-        );
+  // ===================== PATCH =====================
+  Future<ResponseData> patchRequest(String url,
+      {Map<String, dynamic>? body, String? token}) async {
+    try {
+      final response = await patch(
+        Uri.parse(url),
+        headers: _headers(token),
+        body: jsonEncode(body),
+      ).timeout(Duration(seconds: timeoutDuration));
+
+      return _handleResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
+
+  // ===================== DELETE =====================
+  Future<ResponseData> deleteRequest(String url,
+      {Map<String, dynamic>? body, String? token}) async {
+    try {
+      final response = await delete(
+        Uri.parse(url),
+        headers: _headers(token),
+        body: jsonEncode(body),
+      ).timeout(Duration(seconds: timeoutDuration));
+
+      return _handleResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
+
+  // ===================== MULTIPART =====================
+  Future<ResponseData> multipartRequest(
+    String url, {
+    required String method,
+    Map<String, String>? fields,
+    List<File>? files,
+    String? token,
+  }) async {
+    try {
+      var request = MultipartRequest(method, Uri.parse(url));
+
+      if (token != null) {
+        request.headers['Authorization'] = token;
       }
+
+      // Add fields
+      if (fields != null) {
+        request.fields.addAll(fields);
+      }
+
+      // Add files
+      if (files != null) {
+        for (File file in files) {
+          request.files.add(
+            await MultipartFile.fromPath(
+              'files', // backend key
+              file.path,
+            ),
+          );
+        }
+      }
+
+      var streamedResponse =
+          await request.send().timeout(Duration(seconds: timeoutDuration));
+
+      final response = await Response.fromStream(streamedResponse);
+
+      return _handleResponse(response);
+    } catch (e) {
+      return _handleError(e);
+    }
+  }
+
+  // ===================== RESPONSE HANDLER =====================
+  ResponseData _handleResponse(Response response) {
+    log('Status: ${response.statusCode}');
+    log('Body: ${response.body}');
+
+    final decoded = jsonDecode(response.body);
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return ResponseData(
+        isSuccess: true,
+        statusCode: response.statusCode,
+        responseData: decoded,
+        errorMessage: '',
+      );
     } else if (response.statusCode == 400) {
       return ResponseData(
         isSuccess: false,
         statusCode: response.statusCode,
-        responseData: decodedResponse,
-        errorMessage: _extractErrorMessages(decodedResponse['errorSources']),
-      );
-    } else if (response.statusCode == 500) {
-      return ResponseData(
-        isSuccess: false,
-        statusCode: response.statusCode,
-        responseData: '',
-        errorMessage:
-        decodedResponse['message'] ?? 'An unexpected error occurred!',
+        responseData: decoded,
+        errorMessage: _extractErrorMessages(decoded['errorSources']),
       );
     } else {
       return ResponseData(
         isSuccess: false,
         statusCode: response.statusCode,
-        responseData: decodedResponse,
-        errorMessage: decodedResponse['message'] ?? 'An unknown error occurred',
+        responseData: decoded,
+        errorMessage: decoded['message'] ?? 'Something went wrong',
       );
     }
   }
 
-  // Extract error messages for status 400
-  String _extractErrorMessages(dynamic errorSources) {
-    if (errorSources is List) {
-      return errorSources
-          .map((error) => error['message'] ?? 'Unknown error')
-          .join(', ');
-    }
-    return 'Validation error';
-  }
-
-  // Handle errors
+  // ===================== ERROR HANDLER =====================
   ResponseData _handleError(dynamic error) {
-    log('Request Error: $error');
+    log('Error: $error');
 
     if (error is ClientException) {
       return ResponseData(
         isSuccess: false,
         statusCode: 500,
         responseData: '',
-        errorMessage: 'Network error occurred. Please check your connection.',
+        errorMessage: 'Network error. Check internet.',
       );
     } else if (error is TimeoutException) {
       return ResponseData(
         isSuccess: false,
         statusCode: 408,
         responseData: '',
-        errorMessage: 'Request timeout. Please try again later.',
+        errorMessage: 'Request timeout.',
       );
     } else {
       return ResponseData(
@@ -130,5 +193,12 @@ class NetworkCaller {
         errorMessage: 'Unexpected error occurred.',
       );
     }
+  }
+
+  String _extractErrorMessages(dynamic errorSources) {
+    if (errorSources is List) {
+      return errorSources.map((e) => e['message'] ?? 'Error').join(', ');
+    }
+    return 'Validation error';
   }
 }

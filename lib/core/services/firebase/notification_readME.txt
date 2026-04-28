@@ -51,7 +51,7 @@ for using Firebase push notification you have to do......
     void main() async {
 
       await AppNotificationInitializer.init(); <---------------------------> add this line at the top of [runApp]
-      runApp(const CourseOnline());
+      runApp(const Project());
     }
 
 -------------------------------------------- End Setup process ------------------------------------------
