@@ -1,3 +1,5 @@
+// path: lib/core/utils/theme/theme.dart
+
 import 'package:flutter/material.dart';
 
 import 'custom_themes/app_bar_theme.dart';

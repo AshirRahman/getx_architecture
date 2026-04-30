@@ -1,3 +1,5 @@
+// path: lib/core/utils/constants/app_texts.dart
+
 
 class AppText{
   AppText._();

@@ -1,3 +1,5 @@
+// path: lib/core/services/firebase/fcm_handler.dart
+
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:notification_test/core/utils/helpers/app_helper.dart';

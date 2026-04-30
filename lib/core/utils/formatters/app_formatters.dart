@@ -1,3 +1,5 @@
+// path: lib/core/utils/formatters/app_formatters.dart
+
 import 'package:intl/intl.dart';
 
 class AppForMatters {

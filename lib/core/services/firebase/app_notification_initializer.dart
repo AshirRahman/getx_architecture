@@ -1,3 +1,5 @@
+// path: lib/core/services/firebase/app_notification_initializer.dart
+
 // import 'package:flutter/cupertino.dart';
 
 // import 'fcm_handler.dart';

@@ -1,3 +1,5 @@
+// path: lib/core/utils/constants/enums.dart
+
 
 enum TextSizes { small, medium, large }
 

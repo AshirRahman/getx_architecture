@@ -1,3 +1,5 @@
+// path: tools/combine_project.dart
+
 // ignore_for_file: avoid_print
 
 import 'dart:io';

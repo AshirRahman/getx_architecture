@@ -1,3 +1,5 @@
+<!-- path: README.md -->
+
 # project
 
 A new Flutter project.
