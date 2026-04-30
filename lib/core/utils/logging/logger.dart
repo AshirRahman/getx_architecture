@@ -1,3 +1,5 @@
+// path: lib/core/utils/logging/logger.dart
+
 import 'package:logger/logger.dart';
 
 class AppLoggerHelper{

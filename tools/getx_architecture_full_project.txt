@@ -1,3 +1,5 @@
+// path: tools/getx_architecture_full_project.txt
+
 ======================================================================
   PROJECT: getx_architecture
   Generated: 2026-04-28 16:52:40.216442

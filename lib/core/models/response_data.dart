@@ -1,3 +1,5 @@
+// path: lib/core/models/response_data.dart
+
 class ResponseData {
   final bool isSuccess;
   final int statusCode;

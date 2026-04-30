@@ -1,3 +1,5 @@
+// path: lib/routes/app_routes.dart
+
 import 'package:get/get.dart';
 import '../features/home/screen/home_screen.dart';
 

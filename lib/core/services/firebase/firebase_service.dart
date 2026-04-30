@@ -1,3 +1,5 @@
+// path: lib/core/services/firebase/firebase_service.dart
+
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:notification_test/core/utils/logging/logger.dart';

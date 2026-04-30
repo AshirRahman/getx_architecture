@@ -1,3 +1,5 @@
+// path: lib/core/utils/helpers/app_helper.dart
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

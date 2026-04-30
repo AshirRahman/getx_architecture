@@ -1,3 +1,5 @@
+// path: lib/core/utils/validators/app_validator.dart
+
 class AppValidator {
   AppValidator._();
 

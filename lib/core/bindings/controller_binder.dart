@@ -1,3 +1,5 @@
+// path: lib/core/bindings/controller_binder.dart
+
 
 
 import 'package:get/get.dart';
